@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-const MyComponent = () => {
+const MyComponent = ({distance}) => {
   const [responseData, setResponseData] = useState(null);
 
   useEffect(() => {
@@ -11,11 +11,11 @@ const MyComponent = () => {
         const response = await fetch('https://app.trycarbonapi.com/api/carTravel', {
           method: 'POST',
           headers: {
-            'Authorization': process.env.API_CARBON,
+            'Authorization': 'Bearer ' + API_CARBON,
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            distance: 50,
+            distance: 5,
             vehicle: 'SmallDieselCar'
           })
         });
@@ -33,6 +33,7 @@ const MyComponent = () => {
   return (
     <div>
       {responseData && <p>{responseData.carbon}</p>}
+      <p>{distance}</p>
     </div>
   );
 };

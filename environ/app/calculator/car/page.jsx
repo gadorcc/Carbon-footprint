@@ -6,7 +6,7 @@ const page = () => {
   return (
     <>
     <div>calculator</div>
-    <MyComponent />
+    <MyComponent distance='5' />
     </>
   )
 }
