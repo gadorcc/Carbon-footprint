@@ -4,28 +4,33 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
-import PedalBikeIcon from '@mui/icons-material/PedalBike';
+
+import Link from 'next/link'
 
 const images = [
   {
     url: '/assets/images/pexels-olga-lioncat-7245319.jpg',
     title: 'Public Transport',
     width: '40%',
+    address: 'calculator/publictransport'
   },
   {
     url: '/static/images/buttons/burgers.jpg',
     title: 'Car',
     width: '30%',
+    address: 'calculator/car'
   },
   {
     url: '/static/images/buttons/camera.jpg',
     title: 'Motorbike',
     width: '30%',
+    address: 'calculator/motorbike'
   },
   {
     url: '/static/images/buttons/camera.jpg',
     title: 'Plane',
     width: '30%',
+    address: 'calculator/plane'
   },
 
 ];
@@ -99,7 +104,9 @@ const ButtonBases = () => {
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }}>
       {images.map((image) => (
-        <ImageButton
+
+
+        <ImageButton href={image.address}
           focusRipple
           key={image.title}
           style={{
@@ -125,6 +132,9 @@ const ButtonBases = () => {
             </Typography>
           </Image>
         </ImageButton>
+
+
+
       ))}
     </Box>
   );

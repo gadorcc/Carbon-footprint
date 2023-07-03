@@ -1,4 +1,5 @@
-import Card from '../components/Card'
+import Card from '../components/Card';
+import Test from '../components/Test'
 
 const Home = () => {
   return (
@@ -7,6 +8,7 @@ const Home = () => {
       <div className="banner">
         <p>Hola</p>
       </div>
+      <Test />
       <Card />
 
     </section>
