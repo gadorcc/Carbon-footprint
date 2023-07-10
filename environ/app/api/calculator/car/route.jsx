@@ -1,21 +1,27 @@
 'use client'
 
 import { useEffect, useState } from 'react';
+console.log({'Authorization': `Bearer ${process.env.API_CARBON}`});
 
-const MyComponent = ({distance}) => {
+const MyComponent = () => {
   const [responseData, setResponseData] = useState(null);
+  const  [inputValue, setInputValue] =  useState('');
+  const  handleChange = (event) => {
+		setInputValue(event.target.value);
+	};
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+
         const response = await fetch('https://app.trycarbonapi.com/api/carTravel', {
           method: 'POST',
           headers: {
-            'Authorization': 'Bearer ' + API_CARBON,
+            'Authorization': 'Bearer ',
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            distance: 5,
+            distance: {inputValue},
             vehicle: 'SmallDieselCar'
           })
         });
@@ -32,10 +38,37 @@ const MyComponent = ({distance}) => {
 
   return (
     <div>
+      <form>
+	<label>Distance Km:
+	<input  type="text"  value={inputValue} onChange={handleChange} />
+	</label>
+	<p>Input Value: {inputValue}</p>
+  </form>
       {responseData && <p>{responseData.carbon}</p>}
-      <p>{distance}</p>
+      <p></p>
     </div>
   );
 };
+
+
+
+
+// const  Test = () => {
+// 	// const  [inputValue, setInputValue] =  useState('');
+
+// 	const  handleChange = (event) => {
+// 		setInputValue(event.target.value);
+// 	};
+
+// return  (
+// <form>
+// 	<label>Distance Km:
+// 	<input  type="text"  value={inputValue} onChange={handleChange} />
+// 	</label>
+// 	<p>Input Value: {inputValue}</p>
+// </form>
+// )};
+
+
 
 export default MyComponent;
