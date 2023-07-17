@@ -1,12 +1,14 @@
 'use client'
 import React from 'react'
 import MyComponent from '@/app/api/calculator/car/route'
+import Form from '@/components/Form'
 
 const page = () => {
   return (
     <>
-    <div>calculator</div>
-    <MyComponent distance='5' />
+    <div>calculator car CO2</div>
+    <Form />
+    <MyComponent distance={15} />
     </>
   )
 }

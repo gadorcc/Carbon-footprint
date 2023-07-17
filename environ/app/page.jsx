@@ -1,5 +1,7 @@
 import Card from '../components/Card';
-import Test from '../components/Test'
+import Test from '../components/Form';
+import MyComponent from './api/calculator/car/route';
+
 
 const Home = () => {
   return (
@@ -8,8 +10,9 @@ const Home = () => {
       <div className="banner">
         <p>Hola</p>
       </div>
-      <Test />
+      {/* <Test /> */}
       <Card />
+      <MyComponent />
 
     </section>
   )
